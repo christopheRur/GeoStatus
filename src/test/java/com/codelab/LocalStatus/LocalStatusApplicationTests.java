@@ -30,7 +30,6 @@ class LocalStatusApplicationTests {
 	@Test
 	public void testBadRequestLocalStatus() throws IOException {
 
-
 		Mockito.when(geosStatusService.retrieveGeoStatus()).thenReturn(new JsonObject());
 		ResponseEntity<?> response = controller.getGeoStatus();
 		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
