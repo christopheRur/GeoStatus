@@ -16,7 +16,7 @@ public class GeoStatusController {
         try {
             if (geoStatusService == null) {
 
-                return ResponseEntity.badRequest().body("No STATUS Found!");
+                return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body("Too many requests");
 
             } else {
 

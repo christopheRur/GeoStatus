@@ -3,7 +3,6 @@ package com.codelab.LocalStatus;
 import com.codelab.LocalStatus.Controller.GeoStatusController;
 import com.codelab.LocalStatus.services.GeoStatusServiceImpl;
 import com.google.gson.JsonObject;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -22,31 +21,23 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 class LocalStatusApplicationTests {
 
-	@Mock
-	private GeoStatusServiceImpl geosStatusService;
-	@InjectMocks
-	private GeoStatusController controller;
+    @Mock
+    private GeoStatusServiceImpl geosStatusService;
+    @InjectMocks
+    private GeoStatusController controller;
 
-	@Test
-	public void testBadRequestLocalStatus() throws IOException {
+    @Test
+    public void testBadRequestLocalStatus() throws IOException {
 
-		Mockito.when(geosStatusService.retrieveGeoStatus()).thenReturn(new JsonObject());
-		ResponseEntity<?> response = controller.getGeoStatus();
-		assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
-	}
-//	@Test
-//	public void testLocalStatus() throws IOException {
-//
-//
-//		Mockito.when(geosStatusService.retrieveGeoStatus()).thenReturn(new JsonObject());
-//		ResponseEntity<?> response = controller.getGeoStatus();
-//		assertEquals(HttpStatus.OK, response.getStatusCode());
-//	}
+        Mockito.when(geosStatusService.retrieveGeoStatus()).thenReturn(new JsonObject());
+        ResponseEntity<?> response = controller.getGeoStatus();
+        assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+    }
 
-	@Test
-	void contextLoads() {
-	}
 
+    @Test
+    void contextLoads() {
+    }
 
 
 }
